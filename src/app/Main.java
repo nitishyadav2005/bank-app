@@ -29,8 +29,8 @@ public class Main {
             switch (choice) {
                 case "1" -> openAccount(scanner, bankService);
                 case "2" -> deposit(scanner, bankService);
-                case "3" -> withdraw(scanner);
-                case "4" -> transfer(scanner);
+                case "3" -> withdraw(scanner, bankService);
+                case "4" -> transfer(scanner, bankService);
                 case "5" -> statement(scanner);
                 case "6" -> listAccounts(scanner, bankService);
                 case "7" -> searchAccounts(scanner);
@@ -68,10 +68,23 @@ public class Main {
         System.out.println("Deposited");
     }
 
-    private static void withdraw(Scanner scanner) {
+    private static void withdraw(Scanner scanner, BankService bankService) {
+        System.out.println("Account Number: ");
+        String accountNumber = scanner.nextLine().trim();
+        System.out.println("Amount: ");
+        double amount = Double.valueOf(scanner.nextLine().trim());
+        bankService.withdraw(accountNumber, amount, "Withdrawal");
+        System.out.println("Withdrawn");
     }
 
-    private static void transfer(Scanner scanner) {
+    private static void transfer(Scanner scanner, BankService bankService) {
+        System.out.println("From Account: ");
+        String from = scanner.nextLine().trim();
+        System.out.println("To account: ");
+        String to = scanner.nextLine().trim();
+        System.out.println("Amount");
+        double amount = Double.valueOf(scanner.nextLine().trim());
+        bankService.transfer(from, to,amount, "Transfer");
     }
 
     private static void statement(Scanner scanner) {
