@@ -31,7 +31,7 @@ public class Main {
                 case "2" -> deposit(scanner, bankService);
                 case "3" -> withdraw(scanner, bankService);
                 case "4" -> transfer(scanner, bankService);
-                case "5" -> statement(scanner);
+                case "5" -> statement(scanner, bankService);
                 case "6" -> listAccounts(scanner, bankService);
                 case "7" -> searchAccounts(scanner);
                 case "0" -> running = false; 
@@ -87,7 +87,12 @@ public class Main {
         bankService.transfer(from, to,amount, "Transfer");
     }
 
-    private static void statement(Scanner scanner) {
+    private static void statement(Scanner scanner, BankService bankService) {
+        System.out.println("Account Number: ");
+        String account = scanner.nextLine().trim();
+        bankService.getStatement(account).forEach(t -> {
+            System.out.println(t.getTimestamp() + " | " + t.getType() + " | " + t.getAmount() + " | "+ t.getNote());
+        });
     }
 
     private static void listAccounts(Scanner scanner, BankService bankService) {
