@@ -33,7 +33,7 @@ public class Main {
                 case "4" -> transfer(scanner, bankService);
                 case "5" -> statement(scanner, bankService);
                 case "6" -> listAccounts(scanner, bankService);
-                case "7" -> searchAccounts(scanner);
+                case "7" -> searchAccounts(scanner, bankService);
                 case "0" -> running = false; 
             }
         }
@@ -101,6 +101,10 @@ public class Main {
         });
     }
 
-    private static void searchAccounts(Scanner scanner) {
+    private static void searchAccounts(Scanner scanner, BankService bankService) {
+        System.out.println("Customer name contains");
+        String q = scanner.nextLine().trim();
+        bankService.searchAccountsByCustomerName(q).forEach(account ->
+                System.out.println(account.getAccountNumber() + " | " + account.getAccountType() + " | " + account.getBalance()));
     }
 }
