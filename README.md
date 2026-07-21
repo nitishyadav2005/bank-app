@@ -98,17 +98,7 @@ java Main
 
 ---
 
-## 🎯 Future Improvements
 
-- JDBC + MySQL integration
-- Spring Boot REST APIs
-- Authentication & Authorization
-- Interest calculation
-- Account statements in PDF
-- Unit Testing (JUnit)
-- Logging
-
----
 
 ## 🤝 Contributing
 
