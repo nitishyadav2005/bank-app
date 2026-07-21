@@ -22,7 +22,7 @@ public class BankServiceImpl implements BankService {
         String customerId = UUID.randomUUID().toString();
 
         // create customer
-        Customer c = new Customer(email, customerId, name);
+        Customer c = new Customer(customerId, name, email);
         customerRepository.save(c);
 
         // CHANGE LATER --> 10+1 = AC11
@@ -97,7 +97,7 @@ public class BankServiceImpl implements BankService {
 
     @Override
     public List<Account> searchAccountsByCustomerName(String q) {
-        String query = (q == null) ? " " : q.toLowerCase();
+        String query = (q == null) ? "" : q.toLowerCase();
 //        List<Account> result = new ArrayList<>();
 //        for(Customer c : customerRepository.findAll()){
 //             if(c.getName().toLowerCase().contains(query))
