@@ -48,9 +48,9 @@ public class Main {
 
         System.out.println("Account Type (SAVINGS/CURRENT): ");
         String type = scanner.nextLine().trim();
-
         System.out.println("Initial deposit (optional, blank for 0): ");
         String amountStr = scanner.nextLine().trim();
+        if(amountStr.isBlank()) amountStr = "0";
         Double initial = Double.valueOf(amountStr);
         String accountNumber =  bankService.openAccount(name, email, type);
         if(initial > 0)
