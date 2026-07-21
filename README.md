@@ -31,28 +31,43 @@ A console-based **Bank Management System** built using **Core Java** and **Objec
 
 ## 📂 Project Structure
 
-```
-src/
+```text
+src
+├── app
+│   └── Main.java
 │
-├── domain/
-│   ├── Customer.java
+├── domain
 │   ├── Account.java
+│   ├── Customer.java
 │   ├── Transaction.java
-│   └── ...
+│   └── Type.java
 │
-├── service/
+├── exception
+│   ├── AccountNotFoundException.java
+│   ├── InsufficientFundsException.java
+│   └── ValidationException.java
+│
+├── repository
+│   ├── AccountRepository.java
+│   ├── CustomerRepository.java
+│   └── TransactionRepository.java
+│
+├── service
 │   ├── BankService.java
-│   └── ...
+│   └── impl
+│       └── BankServiceImpl.java
 │
-├── repository/
-│   ├── BankRepository.java
-│   └── ...
-│
-├── util/
-│   └── ...
-│
-└── Main.java
+└── util
+    └── Validation.java
 ```
+## 🏗️ Architecture
+
+- **app** – Entry point of the application.
+- **domain** – Contains entity classes such as `Account`, `Customer`, and `Transaction`.
+- **repository** – Handles in-memory data storage and retrieval.
+- **service** – Defines business logic through interfaces and implementations.
+- **exception** – Contains custom exceptions for better error handling.
+- **util** – Utility classes for input validation and common helper methods.
 
 ---
 
